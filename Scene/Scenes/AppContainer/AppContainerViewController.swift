@@ -25,8 +25,15 @@ private extension AppContainerViewController {
   func setupView() {
     view.backgroundColor = Color.white.color
 
+    let navView = homeCoordinator.navigationController.view!
     addChild(homeCoordinator.navigationController)
-    contentView.addSubview(homeCoordinator.navigationController.view)
+    contentView.addSubview(navView)
     homeCoordinator.navigationController.didMove(toParent: self)
+
+    navView.translatesAutoresizingMaskIntoConstraints = false
+    navView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+    navView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+    navView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+    navView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
   }
 }
